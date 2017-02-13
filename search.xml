@@ -4,19 +4,64 @@
   
     
     <entry>
-      <title><![CDATA[test]]></title>
-      <url>http://onesimple.cn//blog/2017/02/02/test/</url>
-      <content type="html"><![CDATA[<p>is my new blog for test heheehe</p>
-<center><br><img title="微信二维码" alt="二维码" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/user/alipay.jpg?imageView2/2/w/600"><br></center>
-
+      <title><![CDATA[逻辑回归与线性回归原理探微]]></title>
+      <url>http://onesimple.cn//blog/2017/02/logistic-regression/</url>
+      <content type="html"><![CDATA[<p>&emsp;&emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:</p>
+<blockquote>
+<p>线性回归: 最小二乘法推导，预测连续值</p>
+<p>逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="1-线性回归"><a href="#1-线性回归" class="headerlink" title="1.线性回归"></a>1.线性回归</h1><ul>
+<li>问题引出</li>
+</ul>
+<p>房价y和房屋面积x之间的关系，我们一般估计为线性关系，即目标函数为:</p>
+<p>$$<br>    f(x) = ax + b \<br>$$<br>$$<br>   f(x) \approx  y<br>$$<br>根据样本很容易计算出a、b，也就能根据一个给定的面积x估算出房价了。\<br>如果有影响房价的不止一个因素(现实中往往如此，比如国民平均收入水平也是影响房价的一个因素)，就是一个多变量问题，这时我们估计的目标函数就变成多元的了，如果有m个因素,记为列向量:<br>$$\sum_{i=1}^n a_i=0$$</p>
+<p>$$<br>    x = (x_0,x_1,…,x_{m-1})<br>$$<br>则要求解的参数w的也应该是m个，也记为列向量<br>$$<br>    w =<br>        \left (<br>            \begin{matrix}<br>                w_0 \\<br>                w_1 \\<br>                … \\<br>                w_{m-1}<br>            \end{matrix}<br>        \right )<br>$$<br>预测的f(x)是一个值，<code>f(x) = ax +b</code>的形式就变成:<br>$$<br>    f = xw<br>$$<br>推广到样本空间，记第i个样本为:<br>$$<br>    x_i = (x_{i0}, x_{i1},…,x_{i,m-1})<br>$$<br>如果有n个样本，样本空间表示为矩阵X:<br>$$<br>    X_{n \times m} =<br>        \left (<br>            \begin{matrix}<br>                x_{00} &amp; x_{01} &amp; … &amp; x_{0,m-1} \\<br>                x_{10} &amp; x_{11} &amp; … &amp; x_{1,m-1} \\<br>                …    &amp; … &amp; … &amp; …          \\<br>                x_{n-1,0} &amp; x_{n-1,1} &amp; … &amp; x_{n-1,m-1}<br>            \end{matrix}<br>        \right )<br>$$<br>则预测的所有f值的向量为:</p>
+<p>$$<br>    f_{n \times 1} =<br>            \left (<br>            \begin{matrix}<br>                f_0 \\<br>                f_1 \\<br>                … \\<br>                f_{n-1}<br>            \end{matrix}<br>        \right )<br>        =<br>        X_{n \times m}w_{m \times 1}<br>$$<br>预测值和实际值一般会有一个误差，记为e<br>$$<br>  y_{n \times 1} = f_{n \times 1} + e_{n \times 1}<br>$$<br>误差的分布是随机的，假定其分布为正态分布，均值为0，方差为定值，则依据正态分布的概率密度定义:</p>
+<p>$$<br>  p(e) = \frac    {1}<br>      {<br>           \sqrt[2]  {2\pi}<br>           \sigma<br>      }<br>      e^{( - \frac {e^2}<br>          {2\sigma^2}<br>      )}<br>$$</p>
+<h1 id="2-逻辑回归"><a href="#2-逻辑回归" class="headerlink" title="2.逻辑回归"></a>2.逻辑回归</h1><ul>
+<li>问题引出</li>
+</ul>
 ]]></content>
     </entry>
     
     <entry>
-      <title><![CDATA[test_hexo]]></title>
-      <url>http://onesimple.cn//blog/2017/01/22/test-hexo/</url>
-      <content type="html"><![CDATA[<h2 id="滚滚长江东逝水，浪花淘尽英雄"><a href="#滚滚长江东逝水，浪花淘尽英雄" class="headerlink" title="滚滚长江东逝水，浪花淘尽英雄"></a>滚滚长江东逝水，浪花淘尽英雄</h2><a id="more"></a>
-<p>“- <a href="http://img.netbian.com/file/2016/0127/45ef4c16f387302475aab6d852390ab2.jpg" target="_blank" rel="external">http://img.netbian.com/file/2016/0127/45ef4c16f387302475aab6d852390ab2.jpg</a>“<br><a href="http://bruce.u.qiniudn.com/2013/11/27/reading/photos-1.jpg" target="_blank" rel="external">http://bruce.u.qiniudn.com/2013/11/27/reading/photos-1.jpg</a></p>
+      <title><![CDATA[hexo博客之常用markdown语法及latex公式备忘]]></title>
+      <url>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</url>
+      <content type="html"><![CDATA[<p>本篇主要整理了一些常用的markdown语法，以及hexo博客使用mathjax渲染公式的一些样例。</p>
+<a id="more"></a>
+<ul>
+<li>图片居中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt;</div><div class="line">&#123;% qnimg user/alipay.jpg title:微信二维码 alt:二维码 &apos;class:class1 class2&apos; extend:?imageView2/2/w/600 %&#125;</div><div class="line">&lt;/center&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<center><br><img title="支付宝二维码" alt="二维码" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/user/alipay.jpg?imageView2/2/w/600"><br></center>
+
+<ul>
+<li>mathjax 公式测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">段内公式只用一个$即可:  $F_&#123;\mu&#125;$</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;这是我的段内公式: $F_{\mu}$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sum_&#123;i=1&#125;^n a_i=0$$</div></pre></td></tr></table></figure>
+<p>$$\sum_{i=1}^n a_i=0$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$F_&#123;\mu&#125;$</div><div class="line"></div><div class="line">$F_1 + F_b = F_c$</div><div class="line"></div><div class="line">$$</div><div class="line">f(x) \approx  y</div><div class="line">$$</div></pre></td></tr></table></figure>
+<p>$F_{\mu}$</p>
+<p>$F_1 + F_b = F_c$</p>
+<p>$$<br>f(x) \approx  y<br>$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$x = ( x_0 , x_1 , ... , x_&#123;m-1&#125; )$</div></pre></td></tr></table></figure>
+<p>$x = ( x_0 , x_1 , … , x_{m-1} )$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sum_&#123;i=1&#125;^n a_i=0$$</div></pre></td></tr></table></figure>
+<p>$$\sum_{i=1}^n a_i=0$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$x = ( x_0 , x_1 , ... , x_&#123;m-1&#125; )$</div></pre></td></tr></table></figure>
+<p>$x = ( x_0 , x_1 , … , x_{m-1} )$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">\begin&#123;bmatrix&#125;</div><div class="line">1 &amp; 2\\</div><div class="line">3 &amp; 4</div><div class="line">\end&#123;bmatrix&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
+<p>$$<br>\begin{bmatrix}<br>1 &amp; 2\\<br>3 &amp; 4<br>\end{bmatrix}<br>$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">    w = </div><div class="line">        \left (</div><div class="line">            \begin&#123;matrix&#125; </div><div class="line">                w\_0 \\</div><div class="line">                w\_1 \\</div><div class="line">                ... \\</div><div class="line">                w\_&#123;m-1&#125; </div><div class="line">            \end&#123;matrix&#125;</div><div class="line">        \right )</div><div class="line">$$</div></pre></td></tr></table></figure>
+<p>$$<br>    w =<br>        \left (<br>            \begin{matrix}<br>                w_0 \\<br>                w_1 \\<br>                … \\<br>                w_{m-1}<br>            \end{matrix}<br>        \right )<br>$$</p>
+<ul>
+<li>表格测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 链接 | 结果 | 原因 |</div><div class="line">|:-----|:---:|----------:|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
