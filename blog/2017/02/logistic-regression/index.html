@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mechine-learning,LR," />
+  <meta name="keywords" content="机器学习,逻辑回归," />
 
 
 
@@ -96,7 +96,7 @@
 
 线性回归: 最小二乘法推导，预测连续值
 逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测">
-<meta property="og:updated_time" content="2017-02-13T15:48:29.828Z">
+<meta property="og:updated_time" content="2017-02-16T15:21:17.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归与线性回归原理探微">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:
@@ -349,7 +349,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/mechine-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">mechine-learning</span>
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -410,18 +410,15 @@
 <p>逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="1-线性回归"><a href="#1-线性回归" class="headerlink" title="1.线性回归"></a>1.线性回归</h1><ul>
-<li>问题引出</li>
-</ul>
-<p>房价y和房屋面积x之间的关系，我们一般估计为线性关系，即目标函数为:</p>
-<p>$$<br>    f(x) = ax + b \<br>$$<br>$$<br>   f(x) \approx  y<br>$$<br>根据样本很容易计算出a、b，也就能根据一个给定的面积x估算出房价了。\<br>如果有影响房价的不止一个因素(现实中往往如此，比如国民平均收入水平也是影响房价的一个因素)，就是一个多变量问题，这时我们估计的目标函数就变成多元的了，如果有m个因素,记为列向量:<br>$$\sum_{i=1}^n a_i=0$$</p>
-<p>$$<br>    x = (x_0,x_1,…,x_{m-1})<br>$$<br>则要求解的参数w的也应该是m个，也记为列向量<br>$$<br>    w =<br>        \left (<br>            \begin{matrix}<br>                w_0 \\<br>                w_1 \\<br>                … \\<br>                w_{m-1}<br>            \end{matrix}<br>        \right )<br>$$<br>预测的f(x)是一个值，<code>f(x) = ax +b</code>的形式就变成:<br>$$<br>    f = xw<br>$$<br>推广到样本空间，记第i个样本为:<br>$$<br>    x_i = (x_{i0}, x_{i1},…,x_{i,m-1})<br>$$<br>如果有n个样本，样本空间表示为矩阵X:<br>$$<br>    X_{n \times m} =<br>        \left (<br>            \begin{matrix}<br>                x_{00} &amp; x_{01} &amp; … &amp; x_{0,m-1} \\<br>                x_{10} &amp; x_{11} &amp; … &amp; x_{1,m-1} \\<br>                …    &amp; … &amp; … &amp; …          \\<br>                x_{n-1,0} &amp; x_{n-1,1} &amp; … &amp; x_{n-1,m-1}<br>            \end{matrix}<br>        \right )<br>$$<br>则预测的所有f值的向量为:</p>
-<p>$$<br>    f_{n \times 1} =<br>            \left (<br>            \begin{matrix}<br>                f_0 \\<br>                f_1 \\<br>                … \\<br>                f_{n-1}<br>            \end{matrix}<br>        \right )<br>        =<br>        X_{n \times m}w_{m \times 1}<br>$$<br>预测值和实际值一般会有一个误差，记为e<br>$$<br>  y_{n \times 1} = f_{n \times 1} + e_{n \times 1}<br>$$<br>误差的分布是随机的，假定其分布为正态分布，均值为0，方差为定值，则依据正态分布的概率密度定义:</p>
-<p>$$<br>  p(e) = \frac    {1}<br>      {<br>           \sqrt[2]  {2\pi}<br>           \sigma<br>      }<br>      e^{( - \frac {e^2}<br>          {2\sigma^2}<br>      )}<br>$$</p>
-<h1 id="2-逻辑回归"><a href="#2-逻辑回归" class="headerlink" title="2.逻辑回归"></a>2.逻辑回归</h1><ul>
-<li>问题引出</li>
-</ul>
-
+<h1 id="1-线性回归"><a href="#1-线性回归" class="headerlink" title="1.线性回归"></a>1.线性回归</h1><h2 id="问题引出"><a href="#问题引出" class="headerlink" title="问题引出"></a>问题引出</h2><p>&emsp;&emsp;房价y和房屋面积x之间的关系，我们一般估计为线性关系，即目标函数为:</p>
+<p>$$<br>    f(x) = ax + b<br>$$<br>$$<br>   f(x) \approx  y<br>$$<br>根据样本很容易计算出a、b，也就能根据一个给定的面积x估算出房价了。\<br>如果有影响房价的不止一个因素(现实中往往如此，比如国民平均收入水平也是影响房价的一个因素)，就是一个多变量问题，这时我们估计的目标函数就变成多元的了，如果有m个因素,记为列向量:<br>$$\sum_{i=1}^n a_i=0$$</p>
+<p>$$<br>    x = (x_0,x_1,…,x_{m-1})<br>$$<br>则要求解的参数w的也应该是m个，也记为列向量<br>$$<br>    w =<br>        \left (<br>            \begin{matrix}<br>                w_0 \\<br>                w_1 \\<br>                … \\<br>                w_{m-1}<br>            \end{matrix}<br>        \right )<br>$$<br>预测的f(x)是一个值，<code>f(x) = ax +b</code>的形式就变成:<br>$$<br>    f = xw<br>$$<br>推广到样本空间，记第i个样本为:<br>$$<br>    x_i = (x_{i0}, x_{i1},…,x_{i,m-1})<br>$$<br>如果有n个样本，样本空间表示为矩阵X:<br>$$<br>    X_{n \times m} =<br>        \left (<br>            \begin{matrix}<br>                x_{00} &amp; x_{01} &amp; … &amp; x_{0,m-1} \\<br>                x_{10} &amp; x_{11} &amp; … &amp; x_{1,m-1} \\<br>                …    &amp; … &amp; … &amp; …          \\<br>                x_{n-1,0} &amp; x_{n-1,1} &amp; … &amp; x_{n-1,m-1}<br>            \end{matrix}<br>        \right )<br>$$<br>则预测的所有f值的向量为:<br>$$<br>    f_{n \times 1} =<br>            \left (<br>            \begin{matrix}<br>                f_0 \\<br>                f_1 \\<br>                … \\<br>                f_{n-1}<br>            \end{matrix}<br>        \right )<br>        =<br>        X_{n \times m}w_{m \times 1}<br>$$<br>预测值和实际值一般会有一个误差，记为e<br>$$<br>  y_{n \times 1} = f_{n \times 1} + e_{n \times 1}<br>$$<br>任意第i个样本跟预测结果的误差的分布是随机的，既然是随机的，根据中心极限定理就可以估计其分布为正态分布，均值为0，方差为定值，则依据正态分布的概率密度定义,预测值与实际值之间误差的概率密度为:</p>
+<p>$$<br>  p({e^i}) = \frac    {1}<br>      {<br>           \sqrt[2]  {2\pi}<br>           \sigma<br>      }<br>      e^{( - \frac { ( {e^i} ) ^ 2}<br>          {2\sigma^2}<br>      )}<br>$$<br>其中<br>$$<br>{e^i} = {y^i} - w_{m \times 1}^T {x^i}<br>$$<br>此式代入上式。假定m个样本独立，则m个样本的最大似然函数是各自概率密度的乘积:<br>$$<br>L(w) = \prod_{i=1}^{m} \frac    {1}<br>      {<br>           \sqrt[2]  {2\pi}<br>           \sigma<br>      }<br>      e^{( - \frac { ( {e^i} ) ^ 2}<br>          {2\sigma^2}<br>      )}<br>$$<br>此式是关于w的似然函数，要求的是w，可以先对上式取对数,得:<br>$$<br>l(w) = \sum_{i=1}^{m} \ln  [<br>       \frac    {1}<br>      {<br>           \sqrt[2]  {2\pi}<br>           \sigma<br>      }<br>      e^{( - \frac { ( {e^i} ) ^ 2}<br>          {2\sigma^2}<br>      )}<br>      ]    \\\\<br>     = m \ln (\frac {1} { \sqrt[2]  {2\pi} \sigma }) -<br>     \frac {1} {2\sigma^2} \sum_{i=1}^{m} ({y^i} - w_{m \times 1}^T {x^i})^2<br>$$<br>前半项是常数项，记后半项为:<br>$$<br>J(w) = \frac {1} {2} {\sum_{i=1}^{m} ({y^i} - w_{m \times 1}^T {x^i})^2}<br>$$</p>
+<blockquote>
+<p>根据最大似然估计法，概率总和最大时参数估计的最合理，则最大似然函数L(w)取最大时，可推出J(w)取最小，J(w)为最小二乘法的目标函数，问题变为求目标函数最小值的问题。</p>
+</blockquote>
+<h2 id="参数学习"><a href="#参数学习" class="headerlink" title="参数学习"></a>参数学习</h2><p>X为n<em>m的样本矩阵，Y为n</em>1维列向量，J(w)可以写成以下形式:<br>$$<br>J(w) = \frac {1} {2} (Xw - Y)^T(Xw - Y)<br>$$<br>要求J(w)的极值，可对上式求偏导:<br>$$<br>\nabla _w J(w) = \nabla _w (Xw - Y)^T(Xw - Y) \\\\<br>= \nabla _w (w^T X^T X w - w^T X^T Y - Y^T X w - Y^T Y) \\\\<br>= 2 X^T X w - X^T Y - (Y^T X)^T \\\\<br>= 2 ( X^T X w - X^T Y )<br>$$</p>
+<h1 id="2-逻辑回归"><a href="#2-逻辑回归" class="headerlink" title="2.逻辑回归"></a>2.逻辑回归</h1><h2 id="问题引出-1"><a href="#问题引出-1" class="headerlink" title="问题引出"></a>问题引出</h2>
       
     </div>
 
@@ -465,9 +462,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mechine-learning/" rel="tag"># mechine-learning</a>
+            <a href="/tags/mechine-learning/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/LR/" rel="tag"># LR</a>
+            <a href="/tags/LR/" rel="tag"># 逻辑回归</a>
           
         </div>
       
@@ -589,7 +586,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -598,7 +595,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -653,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-线性回归"><span class="nav-number">1.</span> <span class="nav-text">1.线性回归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-逻辑回归"><span class="nav-number">2.</span> <span class="nav-text">2.逻辑回归</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-线性回归"><span class="nav-number">1.</span> <span class="nav-text">1.线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引出"><span class="nav-number">1.1.</span> <span class="nav-text">问题引出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数学习"><span class="nav-number">1.2.</span> <span class="nav-text">参数学习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-逻辑回归"><span class="nav-number">2.</span> <span class="nav-text">2.逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引出-1"><span class="nav-number">2.1.</span> <span class="nav-text">问题引出</span></a></li></ol></li></ol></div>
             
 
           </div>
