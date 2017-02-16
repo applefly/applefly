@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
+    <lastmod>2017-02-13T15:48:29.828Z</lastmod>
+    <data>
+        <display>
+        <title>逻辑回归与线性回归原理探微</title>
+        <pubTime>2017-02-10T13:55:38.000Z</pubTime>
+        
+        <tag>mechine-learning</tag>
+         
+        <tag>LR</tag>
+         
+         
+           
+             
+              <breadCrumb title="mechine-learning" url="http://onesimple.cn/categories/mechine-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</loc>
+    <lastmod>2017-02-13T15:05:07.259Z</lastmod>
+    <data>
+        <display>
+        <title>hexo博客之常用markdown语法及latex公式备忘</title>
+        <pubTime>2017-01-22T08:34:15.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://onesimple.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+</urlset>
