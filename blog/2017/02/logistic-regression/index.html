@@ -96,15 +96,15 @@
 
 线性回归: 最小二乘法推导，预测连续值
 逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测">
-<meta property="og:image" content="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg.png?imageView2/2/w/600">
-<meta property="og:updated_time" content="2017-02-18T16:19:11.018Z">
+<meta property="og:image" content="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg1.png?imageView2/2/w/600">
+<meta property="og:updated_time" content="2017-02-20T01:39:28.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归与线性回归原理探微">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:
 
 线性回归: 最小二乘法推导，预测连续值
 逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测">
-<meta name="twitter:image" content="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg.png?imageView2/2/w/600">
+<meta name="twitter:image" content="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg1.png?imageView2/2/w/600">
 
 
 
@@ -446,12 +446,12 @@
 </blockquote>
 <h3 id="mini-batch梯度下降"><a href="#mini-batch梯度下降" class="headerlink" title="mini-batch梯度下降"></a>mini-batch梯度下降</h3><p>基于以上两种算法的折中算法，每次随机选取b个样本做一个批量梯度下降，这样既节省了计算整个批量的时间，同时计算的方向也会像SGD一样更加准确。<br>repeat until convergency{<br>&emsp;&emsp;for i=1;i&lt;n ; i+=b: {<br>$$ w_j = w_j + \alpha \sum_{i=1}^{i+b} [ (y^{(i)} - f_w(x^{(i)})) \cdot x_j^{(i)} ] $$<br>&emsp;&emsp;}<br>}
 　</p>
-<h1 id="2-非线性回归"><a href="#2-非线性回归" class="headerlink" title="2.非线性回归"></a>2.非线性回归</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>其实只是特征增加了$x^2$项，y相对于特征是非线性的，相对于w还是线性的。往往可以先通过变量置换，$x^’ = x^2$把非线性回归化为线性回归，再利用线性回归的方法确定参数及估计值。</p>
+<h1 id="2-非线性回归"><a href="#2-非线性回归" class="headerlink" title="2.非线性回归"></a>2.非线性回归</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>其实只是特征增加了$x^2$项，y相对于特征是非线性的，相对于w还是线性的。往往可以先通过变量置换，$x^{‘} = x^2$把非线性回归化为线性回归，再利用线性回归的方法确定参数及估计值。</p>
 <blockquote>
 <p><strong>局部加权回归暂不介绍</strong></p>
 </blockquote>
 <h1 id="3-逻辑回归"><a href="#3-逻辑回归" class="headerlink" title="3.逻辑回归"></a>3.逻辑回归</h1><h2 id="问题引出-1"><a href="#问题引出-1" class="headerlink" title="问题引出"></a>问题引出</h2><p>线性回归适合预测连续值，在解决分类问题时则有些不合理，比如</p>
-<center><br><img title="线性回归拟合直线" alt="线性回归拟合直线" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg.png?imageView2/2/w/600"><br></center>
+<center><br><img title="线性回归拟合直线" alt="线性回归拟合直线" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg1.png?imageView2/2/w/600"><br></center>
 
 
 
