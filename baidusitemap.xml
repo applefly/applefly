@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
-    <lastmod>2017-02-20T01:39:28.667Z</lastmod>
+    <lastmod>2017-02-21T05:16:02.840Z</lastmod>
     <data>
         <display>
         <title>逻辑回归与线性回归原理探微</title>
@@ -20,6 +20,23 @@
              
               <breadCrumb title="机器学习" url="http://onesimple.cn/categories/mechine-learning/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://onesimple.cn//blog/2017/02/principles-of-auto-pointer/</loc>
+    <lastmod>2017-02-21T05:14:12.012Z</lastmod>
+    <data>
+        <display>
+        <title>智能指针的实现机理</title>
+        <pubTime>2017-02-21T02:00:59.000Z</pubTime>
+        
+        <tag>auto-ptr</tag>
+         
+         
+           
         </display>
     </data>
     </url>
