@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
+    <loc>http://onesimple.cn//blog/2015/07/principles-of-auto-pointer/</loc>
     
-    <lastmod>2017-02-21T05:48:39.491Z</lastmod>
+    <lastmod>2017-02-21T14:52:01.681Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://onesimple.cn//blog/2017/02/principles-of-auto-pointer/</loc>
+    <loc>http://onesimple.cn//blog/2015/07/singleton/</loc>
     
-    <lastmod>2017-02-21T05:14:12.012Z</lastmod>
+    <lastmod>2017-02-21T14:45:54.817Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
+    
+    <lastmod>2017-02-21T14:38:40.843Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://onesimple.cn//blog/2016/09/google-perftools/</loc>
+    
+    <lastmod>2017-02-21T14:30:04.548Z</lastmod>
     
   </url>
   
