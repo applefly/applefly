@@ -100,7 +100,7 @@
 线程堆栈，它用于维护线程在执行代码时需要的所有参数和局部变量。">
 <meta property="og:image" content="http://img.blog.csdn.net/20150712160039526">
 <meta property="og:image" content="http://img.blog.csdn.net/20150712163552397">
-<meta property="og:updated_time" content="2017-02-22T14:25:14.172Z">
+<meta property="og:updated_time" content="2017-02-22T15:07:04.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows平台多线程同步之Mutex的应用">
 <meta name="twitter:description" content="前言线程组成：
@@ -421,8 +421,40 @@
 <p>&emsp;&emsp;操作系统为每一个运行线程安排一定的CPU时间 —— <strong>时间片</strong>。系统通过一种循环的方式为线程提供时间片，线程在自己的时间内运行，多个线程不断地切换运行，因时间片相当短，因此，给用户的感觉，就好像线程是同时运行的一样。<br>&emsp;&emsp;单cpu计算机一个时间只能运行一个线程，如果计算机拥有多个CPU，线程就能真正意义上同时运行了。<br>&emsp;&emsp;windows平台下，创建线程可以使用windows api 函数CreateThread来实现,函数声明是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">WINBASEAPI</div><div class="line">HANDLE</div><div class="line">WINAPI</div><div class="line">CreateThread(</div><div class="line">    LPSECURITY_ATTRIBUTES lpThreadAttributes,</div><div class="line">    DWORD dwStackSize,</div><div class="line">    LPTHREAD_START_ROUTINE lpStartAddress,</div><div class="line">    LPVOID lpParameter,</div><div class="line">    DWORD dwCreationFlags,</div><div class="line">    LPDWORD lpThreadId</div><div class="line">    );</div></pre></td></tr></table></figure>
 <p>参数说明：</p>
-<table class="table table-bordered table-striped table-condensed"><br>    <tr><br>        <td>lpThreadAttributes</td><br>        <td>线程安全性，使用缺省安全性,一般缺省null</td><br>    </tr><br>    <tr><br>        <td>dwStackSize</td><br>        <td>堆栈大小，0为缺省大小</td><br>    </tr><br>        <tr><br>        <td>lpStartAddress</td><br>        <td>线程要执行的函数指针，即入口函数</td><br>    </tr><br>        <tr><br>        <td>lpParameter</td><br>        <td>线程参数</td><br>    </tr><br>        <tr><br>        <td>dwCreationFlags</td><br>        <td>线程标记，如为0，则创建后立即运行</td><br>    </tr><br>        <tr><br>        <td>lpThreadId</td><br>        <td>LPDWORD为返回值类型，一般传递地址去接收线程的标识符，一般设为null</td><br>    </tr><br></table>
-
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">lpThreadAttributes</td>
+<td style="text-align:center">线程安全性，使用缺省安全性,一般缺省null</td>
+</tr>
+<tr>
+<td style="text-align:center">dwStackSize</td>
+<td style="text-align:center">堆栈大小，0为缺省大小</td>
+</tr>
+<tr>
+<td style="text-align:center">lpStartAddress</td>
+<td style="text-align:center">线程要执行的函数指针，即入口函数</td>
+</tr>
+<tr>
+<td style="text-align:center">lpParameter</td>
+<td style="text-align:center">线程参数</td>
+</tr>
+<tr>
+<td style="text-align:center">dwCreationFlags</td>
+<td style="text-align:center">线程标记，如为0，则创建后立即运行</td>
+</tr>
+<tr>
+<td style="text-align:center">lpThreadId</td>
+<td style="text-align:center">LPDWORD为返回值类型，一般传递地址去接收线程的标识符，一般设为null</td>
+</tr>
+</tbody>
+</table>
 <p>因为要使用windows api函数,所以包含：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#include &lt;windows.h&gt;</div></pre></td></tr></table></figure></p>
 <p>另外需要标准输入输出函数，所以包含：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream.h&gt;</div></pre></td></tr></table></figure>
