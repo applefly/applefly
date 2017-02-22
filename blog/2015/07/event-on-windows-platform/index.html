@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="机器学习,逻辑回归," />
+  <meta name="keywords" content="c++,多线程," />
 
 
 
@@ -84,28 +84,31 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:
+<meta name="description" content="前言线程组成：
 
-线性回归: 最小二乘法推导，预测连续值
-逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测">
+
+线程的内核对象，操作系统用来管理该线程的数据结构。
+线程堆栈，它用于维护线程在执行代码时需要的所有参数和局部变量。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="逻辑回归与线性回归原理探微">
-<meta property="og:url" content="http://onesimple.cn/blog/2017/02/logistic-regression/index.html">
+<meta property="og:title" content="windows平台多线程同步之Event的应用">
+<meta property="og:url" content="http://onesimple.cn/blog/2015/07/event-on-windows-platform/index.html">
 <meta property="og:site_name" content="onesimple">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:
+<meta property="og:description" content="前言线程组成：
 
-线性回归: 最小二乘法推导，预测连续值
-逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测">
-<meta property="og:image" content="http://okqpu7sb4.bkt.clouddn.com//image/cover/ml.jpg?imageView2/2/w/600">
-<meta property="og:image" content="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg1.png?imageView2/2/w/600">
-<meta property="og:updated_time" content="2017-02-22T01:40:13.358Z">
+
+线程的内核对象，操作系统用来管理该线程的数据结构。
+线程堆栈，它用于维护线程在执行代码时需要的所有参数和局部变量。">
+<meta property="og:image" content="http://img.blog.csdn.net/20150712160039526">
+<meta property="og:image" content="http://img.blog.csdn.net/20150712230456631">
+<meta property="og:updated_time" content="2017-02-22T13:56:10.460Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="逻辑回归与线性回归原理探微">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:
+<meta name="twitter:title" content="windows平台多线程同步之Event的应用">
+<meta name="twitter:description" content="前言线程组成：
 
-线性回归: 最小二乘法推导，预测连续值
-逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测">
-<meta name="twitter:image" content="http://okqpu7sb4.bkt.clouddn.com//image/cover/ml.jpg?imageView2/2/w/600">
+
+线程的内核对象，操作系统用来管理该线程的数据结构。
+线程堆栈，它用于维护线程在执行代码时需要的所有参数和局部变量。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150712160039526">
 
 
 
@@ -133,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://onesimple.cn/blog/2017/02/logistic-regression/"/>
+  <link rel="canonical" href="http://onesimple.cn/blog/2015/07/event-on-windows-platform/"/>
 
 
 
 
 
-  <title> 逻辑回归与线性回归原理探微 | onesimple </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> windows平台多线程同步之Event的应用 | onesimple </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://onesimple.cn/blog/2017/02/logistic-regression/">
+  <link itemprop="mainEntityOfPage" href="http://onesimple.cn/blog/2015/07/event-on-windows-platform/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Gaobo Wang">
@@ -319,7 +322,7 @@
             
             
               
-                逻辑回归与线性回归原理探微
+                windows平台多线程同步之Event的应用
               
             
           </h1>
@@ -328,8 +331,8 @@
         <div class="post-meta">
           <span class="post-time">
             
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-10T21:55:38+08:00">
-                2017-02-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-07-12T21:49:33+08:00">
+                2015-07-12
               </time>
             
 
@@ -351,8 +354,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mechine-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
                   </a>
                 </span>
 
@@ -369,8 +372,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/blog/2017/02/logistic-regression/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2017/02/logistic-regression/" itemprop="commentCount"></span>
+                <a href="/blog/2015/07/event-on-windows-platform/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2015/07/event-on-windows-platform/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -380,7 +383,7 @@
 
           
           
-             <span id="/blog/2017/02/logistic-regression/" class="leancloud_visitors" data-flag-title="逻辑回归与线性回归原理探微">
+             <span id="/blog/2015/07/event-on-windows-platform/" class="leancloud_visitors" data-flag-title="windows平台多线程同步之Event的应用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -407,59 +410,33 @@
       
 
       
-        <center><br><img alt="封面" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/cover/ml.jpg?imageView2/2/w/600"><br></center>
-
-<p>&emsp;&emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:</p>
-<blockquote>
-<p>线性回归: 最小二乘法推导，预测连续值</p>
-<p>逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测</p>
-</blockquote>
+        <ul>
+<li><strong>前言</strong><br><strong>线程组成</strong>：</li>
+</ul>
+<ol>
+<li>线程的内核对象，操作系统用来管理该线程的数据结构。</li>
+<li>线程堆栈，它用于维护线程在执行代码时需要的所有参数和局部变量。</li>
+</ol>
 <a id="more"></a>
-<h1 id="1-线性回归"><a href="#1-线性回归" class="headerlink" title="1.线性回归"></a>1.线性回归</h1><h2 id="问题引出"><a href="#问题引出" class="headerlink" title="问题引出"></a>问题引出</h2><p>&emsp;&emsp;房价y和房屋面积x之间的关系，我们一般估计为线性关系，即目标函数为:</p>
-<p>$$<br>    f(x) = ax + b<br>$$<br>$$<br>   f(x) \approx  y<br>$$<br>根据样本很容易计算出a、b，也就能根据一个给定的面积x估算出房价了。\<br>如果有影响房价的不止一个因素(现实中往往如此，比如国民平均收入水平也是影响房价的一个因素)，就是一个多变量问题，这时我们估计的目标函数就变成多元的了，如果有m个因素,记为列向量:<br>$$\sum_{i=1}^n a_i=0$$</p>
-<p>$$<br>    x = (x_0,x_1,…,x_{m-1})<br>$$<br>则要求解的参数w的也应该是m个，也记为列向量<br>$$<br>    w =<br>        \left (<br>            \begin{matrix}<br>                w_0 \\<br>                w_1 \\<br>                … \\<br>                w_{m-1}<br>            \end{matrix}<br>        \right )<br>$$<br>预测的f(x)是一个值，<code>f(x) = ax +b</code>的形式就变成:<br>$$<br>    f = xw<br>$$<br>推广到样本空间，记第i个样本为:<br>$$<br>    x_i = (x_{i0}, x_{i1},…,x_{i,m-1})<br>$$<br>如果有n个样本，样本空间表示为矩阵X:<br>$$<br>    X_{n \times m} =<br>        \left (<br>            \begin{matrix}<br>                x_{00} &amp; x_{01} &amp; … &amp; x_{0,m-1} \\<br>                x_{10} &amp; x_{11} &amp; … &amp; x_{1,m-1} \\<br>                …    &amp; … &amp; … &amp; …          \\<br>                x_{n-1,0} &amp; x_{n-1,1} &amp; … &amp; x_{n-1,m-1}<br>            \end{matrix}<br>        \right )<br>$$<br>则预测的所有f值的向量为:<br>$$<br>    f_{n \times 1} =<br>            \left (<br>            \begin{matrix}<br>                f_0 \\<br>                f_1 \\<br>                … \\<br>                f_{n-1}<br>            \end{matrix}<br>        \right )<br>        =<br>        X_{n \times m}w_{m \times 1}<br>$$<br>预测值和实际值一般会有一个误差，记为e<br>$$<br>  y_{n \times 1} = f_{n \times 1} + e_{n \times 1}<br>$$<br>任意第i个样本跟预测结果的误差的分布是随机的，既然是随机的，根据中心极限定理就可以估计其分布为正态分布，均值为0，方差为定值，则依据正态分布的概率密度定义,预测值与实际值之间误差的概率密度为:</p>
-<p>$$<br>  p({e^{(i)}}) = \frac    {1}<br>      {<br>           \sqrt[2]  {2\pi}<br>           \sigma<br>      }<br>      e^{( - \frac { ( {e^{(i)}} ) ^ 2}<br>          {2\sigma^2}<br>      )}<br>$$<br>其中<br>$$<br>{e^{(i)}} = {y^{(i)}} - w_{m \times 1}^T {x_{m \times 1}^{(i)}}<br>$$<br>此式代入上式。假定n个样本独立，则n个样本的最大似然函数是各自概率密度的乘积:<br>$$<br>L(w) = \prod_{i=1}^{n} \frac    {1}<br>      {<br>           \sqrt[2]  {2\pi}<br>           \sigma<br>      }<br>      e^{( - \frac { ( {e^{(i)}} ) ^ 2}<br>          {2\sigma^2}<br>      )}<br>$$<br>此式是关于w的似然函数，要求的是w，可以先对上式取对数,得:<br>$$<br>l(w) = \sum_{i=1}^{n} \ln  [ {<br>       \frac    {1}<br>      {<br>           \sqrt[2]  {2\pi}<br>           \sigma<br>      }<br>      e^{( - \frac { ( {e^{(i)}} ) ^ 2}<br>          {2\sigma^2}<br>      )}<br>      } ]    \\\\<br>     = n \ln (\frac {1} { \sqrt[2]  {2\pi} \sigma }) -<br>     \frac {1} {2\sigma^2} \sum_{i=1}^{n} ({y^{(i)}} - w_{n \times 1}^T {x_{n \times 1}^{(i)}})^2<br>$$<br>前半项是常数项，记后半项为:<br>$$ \begin{equation}<br>J(w) = \frac {1} {2} {\sum_{i=1}^{n} ({y^{(i)}} - w_{n \times 1}^T {x_{n \times 1}^{(i)}})^2} \\\\<br>     = \frac {1} {2} {\sum_{i=1}^{n} (f_w(x) - y)^2}<br>     \label{a0} \end{equation}<br>$$</p>
-<blockquote>
-<p>l(w) J(w) 都是一个数值，根据最大似然估计法，概率总和最大时参数估计的最合理，则最大似然函数L(w)取最大时，可推出J(w)取最小，J(w)为最小二乘法的目标函数，问题变为求目标函数最小值的问题。</p>
-</blockquote>
-<h2 id="参数学习"><a href="#参数学习" class="headerlink" title="参数学习"></a>参数学习</h2><p>X为nxm的样本矩阵，Y为nx1维列向量，J(w)可以写成以下形式:<br>$$<br>\begin{equation}<br>J(w) = \frac {1} {2} (Xw - Y)^T(Xw - Y)<br>\label{a1}<br>\end{equation}<br>$$<br>要求J(w)的极值，可对上式求偏导:<br>$$<br>\nabla _w J(w) = \nabla _w (Xw - Y)^T(Xw - Y) \\\\<br>= \nabla _w (w^T X^T X w - w^T X^T Y - Y^T X w - Y^T Y) \\\\<br>= 2 X^T X w - X^T Y - (Y^T X)^T \\\\<br>= 2 ( X^T X w - X^T Y )<br>$$</p>
-<p>注意:</p>
-<blockquote>
-<p>$Y^T X$  是常数项对w求偏导为0<br>$ \frac{\partial Xw}{\partial w} = X^\mathrm {T} $</p>
-</blockquote>
-<p>令上式偏导等于0，求解w:<br>$$<br>w = ( X^\mathrm {T} X ) ^ {-1} X^\mathrm {T} Y<br>$$<br>为防止$ X^\mathrm {T} X $ 不可逆或者防止过拟合，增加扰动$\lambda $<br>$$<br>\begin{equation}<br>w = ( X^\mathrm {T} X + \lambda I ) ^ {-1} X^\mathrm {T} Y<br>\label{a2}<br>\end{equation}<br>$$<br>I为单位阵，以上就是线性回归数理上的最终结论。</p>
-<h2 id="正则化处理"><a href="#正则化处理" class="headerlink" title="正则化处理"></a>正则化处理</h2><p>过拟合是指在样本集上表现良好，但测试集上不好，一般是w中有些值过大，振荡很大，而导致过拟合。<br>为解决这个问题可以让更多的$w_j$取0，且越多越好，这种处理方法叫$L_0$正则化；<br>一般是让$ \sum_{j=1}^{m} |w_j| $ 取最小，这种处理叫$L_0$正则化；<br>如果是让$ \sum_{j=1}^{m} |w_j|^2 $ 取最小，则称谓$L_2$正则化。<br>故目标函数 $(\ref{a1})$ 加入平方和损失:<br>$$<br>\begin{equation}<br>J(w) = \frac {1} {2} (Xw - Y)^T(Xw - Y) + \lambda \sum_{j=1}^{m} {w_j}^2<br>\end{equation}<br>$$<br>根据此式进行求解也能推出w的求解公式$(\ref{a2})$</p>
-<h2 id="训练与评价"><a href="#训练与评价" class="headerlink" title="训练与评价"></a>训练与评价</h2><p>怎么对样本进行训练呢?对于正则化项$\lambda$,怎么取值合理呢？</p>
-<p>|  <strong><code>------- 1 -------</code></strong>    | <strong><code>-- 2 --</code></strong> |<strong><code>-- 3 --</code></strong>|</p>
-<p>按合适比例划分样本，得到1、2、3三个部分<br>区间1用于训练w<br>区间2可以试用不同的$\lambda$，使用$w+\lambda I $作预测，看$\lambda$取多少时预测的准确，则选定此$\lambda$，这个过程不需要严格。<br>区间3对w、$\lambda$ 进行验证，当然，还有些交叉验证的策略。<br>|  <strong><code>------------  训练 -------------</code></strong>    | <strong><code>10% 验证</code></strong> |<br>|  <strong><code>--------  训练 ---------</code></strong>    | <strong><code>10%验证</code></strong> | <strong><code>- 训练-</code></strong> |<br>… …       交叉训练验证走十次       … …</p>
-<h2 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h2><p>公式$(\ref{a2})$是参数w的解析解,但实际工程中样本空间很大，不可能对样本空间进行矩阵运算，所以这就需要机器学习的思路，从参数迭代的角度来求解w,梯度下降是常用的算法。</p>
-<blockquote>
-<p>其意义是，为了求得函数的极值点(局部最小值)，先任取一点，然后沿此点处梯度的负方向进行迭代到一个新的点，继续下降直到收敛，算法结束。</p>
-</blockquote>
-<p>首先我们来对$(\ref{a0})$某个$w_j$求偏导<br>$$<br> \frac{\partial J(w)}{\partial w_j} = \frac{\partial }{\partial w_j} { \frac {1} {2} (f_w (x) - y)^2 } \\\\<br> = (f_w (x) - y) \cdot \frac{\partial }{\partial w_j} (f_w (x) - y)\\\\<br> = (f_w (x) - y) \cdot \frac{\partial }{\partial w_j} (\sum_{k=1}^{m} w_k x_k - y) \\\\<br> = (f_w (x) - y) x_j<br>$$<br>注意，上式除了$w_j$其他都算常量，所以求导得到上式结果。结论可简记为：</p>
-<blockquote>
-<p>某个维度的梯度 = 预测误差 X 样本在该维度的取值</p>
-</blockquote>
-<p>既然有了这个梯度，我们就可以有以下几种方式计算。</p>
-<h3 id="批量梯度下降"><a href="#批量梯度下降" class="headerlink" title="批量梯度下降"></a>批量梯度下降</h3><p><strong>批量梯度下降是对所有样本的梯度做加和，然后按步长进行下降迭代，直到收敛</strong></p>
-<p>while  重复直到收敛 :  {<br>$$ w_j = w_j + \alpha \sum_{i=1}^{n} [ (y^{(i)} - f_w(x^{(i)})) \cdot x_j^{(i)} ] $$<br>}<br>$\alpha$为每次迭代的步长<br>凸函数局部最小值一定是全局最小值，批量梯度下降一定会收敛。<br>初始可以让w都为0</p>
-<h3 id="随机梯度下降SGD"><a href="#随机梯度下降SGD" class="headerlink" title="随机梯度下降SGD"></a>随机梯度下降SGD</h3><p>随机梯度下降也称SGD<br><strong>针对每来一个样本进行一次迭代，而不是对所有样本的梯度做加和做迭代</strong><br>while 迭代次数  :  {<br>&emsp;&emsp;for i = 0 to n : {<br>$$<br>w_j = w_j + \alpha (y^{(i)} - f_w(x^{(i)})) \cdot x_j^{(i)}<br>$$<br>&emsp;&emsp;}<br>}<br>注:可以通过最大迭代次数来退出loop，也可以判断本次参数$w_j^{(k)}$ 和下次的$w_j^{(k+1)}$之间的误差，如果稳定到很小的值，则认为收敛，可以退出。</p>
-<blockquote>
-<p>全局梯度下降有可能在一些拐点位置停止不前，而随机梯度下降就或许能跳过一些拐点到达真正的收敛点附近，这是梯度下降的一些特点，以后有机会附文研讨。<br>随机梯度下降一般速度会比较快，学习步长也可以让它先大后小。</p>
-</blockquote>
-<h3 id="mini-batch梯度下降"><a href="#mini-batch梯度下降" class="headerlink" title="mini-batch梯度下降"></a>mini-batch梯度下降</h3><p>基于以上两种算法的折中算法，每次随机选取b个样本做一个批量梯度下降，这样既节省了计算整个批量的时间，同时计算的方向也会像SGD一样更加准确。<br>repeat until convergency{<br>&emsp;&emsp;for i=1;i&lt;n ; i+=b: {<br>$$ w_j = w_j + \alpha \sum_{i=1}^{i+b} [ (y^{(i)} - f_w(x^{(i)})) \cdot x_j^{(i)} ] $$<br>&emsp;&emsp;}<br>}
-　</p>
-<h1 id="2-非线性回归"><a href="#2-非线性回归" class="headerlink" title="2.非线性回归"></a>2.非线性回归</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>其实只是特征增加了$x^2$项，y相对于特征是非线性的，相对于w还是线性的。往往可以先通过变量置换，$x^{‘} = x^2$把非线性回归化为线性回归，再利用线性回归的方法确定参数及估计值。</p>
-<blockquote>
-<p><strong>局部加权回归暂不介绍</strong></p>
-</blockquote>
-<h1 id="3-逻辑回归"><a href="#3-逻辑回归" class="headerlink" title="3.逻辑回归"></a>3.逻辑回归</h1><h2 id="问题引出-1"><a href="#问题引出-1" class="headerlink" title="问题引出"></a>问题引出</h2><p>线性回归适合预测连续值，在解决分类问题时则有些不合理，比如<br>如果只有A B 两簇，线性回归拟合直线为$L_1$,此时取定义域中点a处的值作为界限进行分类，可能暂时满足。但当是ABC三簇数据时，再依此法取b出的值作为分类界限，就会发现分类很不合理。所以线性回归解决分类问题是不合理的，而逻辑回归则适合解决二分类问题。(如果解决多分类问题，可使用softmax回归)</p>
-<center><br><img title="线性回归拟合直线" alt="线性回归拟合直线" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg1.png?imageView2/2/w/600"><br></center>
+<p>&emsp;&emsp;操作系统为每一个运行线程安排一定的CPU时间 —— <strong>时间片</strong>。系统通过一种循环的方式为线程提供时间片，线程在自己的时间内运行，多个线程不断地切换运行，因时间片相当短，因此，给用户的感觉，就好像线程是同时运行的一样。<br>&emsp;&emsp;单cpu计算机一个时间只能运行一个线程，如果计算机拥有多个CPU，线程就能真正意义上同时运行了。<br>&emsp;&emsp;windows平台下，创建线程可以使用windows api 函数CreateThread来实现,函数声明是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">WINBASEAPI</div><div class="line">HANDLE</div><div class="line">WINAPI</div><div class="line">CreateThread(</div><div class="line">    LPSECURITY_ATTRIBUTES lpThreadAttributes,</div><div class="line">    DWORD dwStackSize,</div><div class="line">    LPTHREAD_START_ROUTINE lpStartAddress,</div><div class="line">    LPVOID lpParameter,</div><div class="line">    DWORD dwCreationFlags,</div><div class="line">    LPDWORD lpThreadId</div><div class="line">    );</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;参数说明：</p>
+<table class="table table-bordered table-striped table-condensed"><br>    <tr><br>        <td>lpThreadAttributes</td><br>  <td>线程安全性，使用缺省安全性,一般缺省null</td><br>    </tr><br>    <tr><br>        <td>dwStackSize</td><br>  <td>堆栈大小，0为缺省大小</td><br>    </tr><br>        <tr><br>        <td>lpStartAddress</td><br>  <td>线程要执行的函数指针，即入口函数</td><br>    </tr><br>        <tr><br>        <td>lpParameter</td><br>  <td>线程参数</td><br>    </tr><br>        <tr><br>        <td>dwCreationFlags</td><br>  <td>线程标记，如为0，则创建后立即运行</td><br>    </tr><br>        <tr><br>        <td>lpThreadId</td><br>  <td>LPDWORD为返回值类型，一般传递地址去接收线程的标识符，一般设为null</td><br>    </tr><br></table><br>&emsp;&emsp;因为要使用windows api函数,所以包含：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#include &lt;windows.h&gt;</div></pre></td></tr></table></figure><br><br>&emsp;&emsp;另外需要标准输入输出函数，所以包含：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream.h&gt;</div></pre></td></tr></table></figure><br><br>- <strong>问题引出</strong><br><br>&emsp;&emsp;以多个售票窗口卖同一张火车票为例，定义一个全局的票数tickets，用两个线程来执行卖票，两个线程访问同一个变量tickets，先看一个不正确的写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">//问题程序</div><div class="line">#include &lt;windows.h&gt;</div><div class="line">#include &lt;iostream.h&gt;</div><div class="line">DWORD WINAPI Fun1Proc(</div><div class="line">  LPVOID lpParameter</div><div class="line">);</div><div class="line">DWORD WINAPI Fun2Proc(</div><div class="line">  LPVOID lpParameter</div><div class="line">);</div><div class="line">int tickets=100;</div><div class="line">void main()</div><div class="line">&#123;</div><div class="line"> HANDLE hThread1;</div><div class="line"> HANDLE hThread2;</div><div class="line"> hThread1=CreateThread(NULL,0,Fun1Proc,NULL,0,NULL);</div><div class="line"> hThread2=CreateThread(NULL,0,Fun2Proc,NULL,0,NULL);</div><div class="line"> </div><div class="line"> CloseHandle(hThread1);</div><div class="line"> CloseHandle(hThread2);</div><div class="line"> system(&quot;pause&quot;);</div><div class="line">&#125;</div><div class="line">DWORD WINAPI Fun1Proc(</div><div class="line">  LPVOID lpParameter</div><div class="line">)</div><div class="line">&#123;</div><div class="line"> while(TRUE)</div><div class="line"> &#123;</div><div class="line">  if(tickets&gt;0)</div><div class="line">  &#123;</div><div class="line">   Sleep(1);//假定为卖票需要花费的时间</div><div class="line">   cout&lt;&lt;&quot;thread1 sell ticket : &quot;&lt;&lt;tickets--&lt;&lt;endl;</div><div class="line">  &#125;</div><div class="line">  else</div><div class="line">   break;</div><div class="line"> &#125;</div><div class="line"> return 0;</div><div class="line">&#125;</div><div class="line">DWORD WINAPI Fun2Proc(</div><div class="line">  LPVOID lpParameter // thread data</div><div class="line">)</div><div class="line">&#123;</div><div class="line"> while(TRUE)</div><div class="line"> &#123;</div><div class="line">  if(tickets&gt;0)</div><div class="line">  &#123;</div><div class="line">   Sleep(1);</div><div class="line">   cout&lt;&lt;&quot;thread2 sell ticket : &quot;&lt;&lt;tickets--&lt;&lt;endl;</div><div class="line">  &#125;</div><div class="line">  else</div><div class="line">   break;</div><div class="line"> &#125;</div><div class="line"> return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br>&emsp;&emsp;线程中sleep(1);表名该线程放弃执行的权利，操作系统会选择另外的线程进行执行。所以执行结果是：<br><center>![Alt test]<div style="text-align: center"><br><img src="http://img.blog.csdn.net/20150712160039526" style="display:inline"><br><p>执行结果</p><br></div><br></center><br>&emsp;&emsp;可以看见程序不是按照预期的效果执行的，tickets的改变是混乱的。所以两个线程访问同一块资源时，需要考虑<strong>线程同步</strong>问题，即其中一个线程操作改资源时，其他线程不能访问该资源，只能等待，该线程执行结束之后，其他线程才能对该资源进行访问。<br>&emsp;&emsp;一般采用<strong>互斥对象</strong>、<strong>事件对象</strong>、<strong>关键代码段等</strong>来实现线程的同步。可参考我的另一篇博文<a href="http://blog.csdn.net/applebite/article/details/46852149" target="_blank" rel="external"> windows平台多线程同步之Mutex的应用</a>.本节介绍的是事件对象的使用。<br><br>- <strong>事件对象</strong><br><strong>特征</strong>：<br>&emsp;&emsp;事件对象也属于内核对象，包含一个使用计数，一个用于指明该事件是一个自动重置的事件还是一个人工重置的事件的布尔值，另一个用于指明该事件处于已通知状态还是未通知状态的布尔值。<br>&emsp;&emsp;有两种不同类型的事件对象。一种是人工重置的事件，另一种是自动重置的事件。<br>&emsp;&emsp;当人工重置的事件得到通知时，等待该事件的所有线程均变为可调度线程。当一个自动重置的事件得到通知时，等待该事件的线程中只有一个线程变为可调度线程。<br>&emsp;&emsp;创建事件对象，可以使用api函数CreateEvent,具体声明如下：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">WINBASEAPI</div><div class="line">HANDLE</div><div class="line">WINAPI</div><div class="line">CreateEvent(</div><div class="line">    LPSECURITY_ATTRIBUTES lpEventAttributes,</div><div class="line">    BOOL bManualReset,</div><div class="line">    BOOL bInitialState,</div><div class="line">    LPCWSTR lpName</div><div class="line">    );</div></pre></td></tr></table></figure><br><br>&emsp;&emsp;参数说明：<br><table class="table table-bordered table-striped table-condensed"><br>    <tr><br>        <td>lpEventAttributes</td><br>  <td>安全性，采用null默认安全性。</td><br>    </tr><br>    <tr><br>        <td>bManualReset</td><br>  <td>（TRUE）人工重置或（FALSE）自动重置事件对象为非信号状态，若设为人工重置，则当事件为有信号状态时，所有等待的线程都变为可调度线程。</td><br>    </tr><br>        <tr><br>        <td>bInitialState</td><br>  <td>指定事件对象的初始化状态，TRUE：初始为有信号状态。</td><br>    </tr><br>        <tr><br>        <td>lpName </td><br>  <td>事件对象的名字，一般null匿名即可。</td><br>    </tr><br></table>
 
-<center><br>《—- 待续 —-》<br></center>
-
-
-
+<p>&emsp;&emsp;新建一个win32控制台工程。创建一个全局的事件句柄对象，保存创建的事件的句柄。先看这样一个有问题的写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">#include &lt;windows.h&gt;</div><div class="line">#include &lt;iostream.h&gt;</div><div class="line"></div><div class="line">DWORD WINAPI Fun1Proc(LPVOID lpParameter   );</div><div class="line"></div><div class="line">DWORD WINAPI Fun2Proc(LPVOID lpParameter  );</div><div class="line"></div><div class="line">int tickets=100;</div><div class="line">HANDLE g_hEvent;</div><div class="line"></div><div class="line">void main()</div><div class="line">&#123;</div><div class="line">	HANDLE hThread1;</div><div class="line">	HANDLE hThread2;</div><div class="line">	hThread1=CreateThread(NULL,0,Fun1Proc,NULL,0,NULL);</div><div class="line">	hThread2=CreateThread(NULL,0,Fun2Proc,NULL,0,NULL);</div><div class="line">	CloseHandle(hThread1);</div><div class="line">	CloseHandle(hThread2);</div><div class="line"></div><div class="line">	g_hEvent=CreateEvent(NULL,TRUE,FALSE,&quot;tickets&quot;);</div><div class="line"></div><div class="line">	system(&quot;pause&quot;);</div><div class="line">	CloseHandle(g_hEvent);</div><div class="line">&#125;</div><div class="line"></div><div class="line">DWORD WINAPI Fun1Proc(LPVOID lpParameter )</div><div class="line">&#123;</div><div class="line">	while(TRUE)</div><div class="line">	&#123;</div><div class="line">		WaitForSingleObject(g_hEvent,INFINITE);</div><div class="line">		ResetEvent(g_hEvent);</div><div class="line">		if(tickets&gt;0)</div><div class="line">		&#123;</div><div class="line">			Sleep(1);</div><div class="line">			cout&lt;&lt;&quot;thread1 sell ticket : &quot;&lt;&lt;tickets--&lt;&lt;endl;</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">			break;</div><div class="line">		SetEvent(g_hEvent);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">DWORD WINAPI Fun2Proc(LPVOID lpParameter)</div><div class="line">&#123;</div><div class="line">	</div><div class="line">	while(TRUE)</div><div class="line">	&#123;</div><div class="line">		WaitForSingleObject(g_hEvent,INFINITE);</div><div class="line">		ResetEvent(g_hEvent);</div><div class="line">		if(tickets&gt;0)</div><div class="line">		&#123;</div><div class="line">			Sleep(1);</div><div class="line">			cout&lt;&lt;&quot;thread2 sell ticket : &quot;&lt;&lt;tickets--&lt;&lt;endl;</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">			break;</div><div class="line">		SetEvent(g_hEvent);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;初始化中将时间设为手动重置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g_hEvent=CreateEvent(NULL,TRUE,FALSE,&quot;tickets&quot;);</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;具体思路是：其中一个线程等待到信号之后，重置事件，进行数据处理，处理完成之后再次触发事件。另一个线程收到新的信号，同样处理并重置事件。先来看看执行结果：</p>
+<p><center><div style="text-align: center"><br><img src="http://img.blog.csdn.net/20150712230456631" style="display:inline"></div></center></p>
+<p></p><p>执行结果</p><br><br><br>&emsp;&emsp;通过查看结果可知没能实现线程的同步，因为线程1 WaitForSingleObject等待到事件有信号时，该线程被分配的时间片可能已经用完，此时操作系统执行线程2，正好事件还是有信号状态，所以线程2直接往下执行，导致了读写的混乱。<br>&emsp;&emsp;如果移植到多cpu平台，线程1和线程2可以同时运行，此时处理的结果就更加不可预料，所以这种同步手段不可用。<br>&emsp;&emsp;故采用初始化时设置事件对象为自动重置的对象，并触发为有信号，等待该事件的线程只会有一个是有信号状态，该线程执行结束，设置该事件对象为有信号状态，则另外的一个线程可以变为有信号状态。实现代码变为如下：<br>初始化中将事件设为手动触发且无信号状态，之后触发信号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">g_hEvent=CreateEvent(NULL,FALSE,FALSE,NULL);</div><div class="line">SetEvent(g_hEvent);</div></pre></td></tr></table></figure><p></p>
+<p> &emsp;&emsp;线程中请求到该事件信号，自动将事件置为无信号状态，线程按cpu分配的时间片去执行，等到执行完毕，将事件信号触发为有信号状态，另一个线程此时请求到该信号，进行同样的执行。线程while循环为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">while(TRUE)</div><div class="line">&#123;</div><div class="line">	WaitForSingleObject(g_hEvent,INFINITE);//收到信号，自动重置</div><div class="line">	if(tickets&gt;0)</div><div class="line">	&#123;</div><div class="line">		Sleep(1);</div><div class="line">		cout&lt;&lt;&quot;thread1 sell ticket : &quot;&lt;&lt;tickets--&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">		break;</div><div class="line">	SetEvent(g_hEvent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;与<a href="http://blog.csdn.net/applebite/article/details/46852149" target="_blank" rel="external">mutex对象</a>.不同的是,设为人工重置的事件对象，如果重复SetEvent()设为有信号状态，若想重置只需要执行一次ResetEvent()即可。</p>
+<ul>
+<li><strong>创建命名事件对象</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">	g_hEvent=CreateEvent(NULL,TRUE,FALSE,&quot;tickets&quot;);</div><div class="line">if(g_hEvent)</div><div class="line">&#123;</div><div class="line">	if(ERROR_ALREADY_EXISTS==GetLastError())</div><div class="line">	&#123;</div><div class="line">		cout&lt;&lt;&quot;only instance can run!&quot;&lt;&lt;endl;</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;命名事件对象的一种应用是：通过命名事件对象，可以保证当前只有一个应用程序实例在运行。<br>&emsp;&emsp;以上是关于windows平台下多线程同步相关的事件对象的使用问题，之后将对线程同步的<strong>关键代码段</strong>进行介绍和解析，敬请关注。文中如有谬误，还望不吝赐教。</p>
 
       
     </div>
@@ -504,9 +481,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mechine-learning/" rel="tag"># 机器学习</a>
+            <a href="/tags/c/" rel="tag"># c++</a>
           
-            <a href="/tags/LR/" rel="tag"># 逻辑回归</a>
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
           
         </div>
       
@@ -515,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2017/01/write-blog-with-hexo/" rel="next" title="hexo博客之常用markdown语法及latex公式备忘">
-                <i class="fa fa-chevron-left"></i> hexo博客之常用markdown语法及latex公式备忘
+              <a href="/blog/2015/07/principles-of-auto-pointer/" rel="next" title="智能指针的实现机理">
+                <i class="fa fa-chevron-left"></i> 智能指针的实现机理
               </a>
             
           </div>
@@ -524,6 +501,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2015/07/mutex-on-windows-platform/" rel="prev" title="windows平台多线程同步之Mutex的应用">
+                windows平台多线程同步之Mutex的应用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -538,10 +519,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="/blog/2017/02/logistic-regression/"
-     data-title="逻辑回归与线性回归原理探微"
+        <div class="ds-share flat" data-thread-key="/blog/2015/07/event-on-windows-platform/"
+     data-title="windows平台多线程同步之Event的应用"
      data-content=""
-     data-url="http://onesimple.cn//blog/2017/02/logistic-regression/">
+     data-url="http://onesimple.cn//blog/2015/07/event-on-windows-platform/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -571,8 +552,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="/blog/2017/02/logistic-regression/"
-           data-title="逻辑回归与线性回归原理探微" data-url="http://onesimple.cn//blog/2017/02/logistic-regression/">
+      <div class="ds-thread" data-thread-key="/blog/2015/07/event-on-windows-platform/"
+           data-title="windows平台多线程同步之Event的应用" data-url="http://onesimple.cn//blog/2015/07/event-on-windows-platform/">
       </div>
     
   </div>
@@ -596,17 +577,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://okqpu7sb4.bkt.clouddn.com/image/user/logo.png"
@@ -682,22 +654,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-线性回归"><span class="nav-number">1.</span> <span class="nav-text">1.线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引出"><span class="nav-number">1.1.</span> <span class="nav-text">问题引出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数学习"><span class="nav-number">1.2.</span> <span class="nav-text">参数学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化处理"><span class="nav-number">1.3.</span> <span class="nav-text">正则化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练与评价"><span class="nav-number">1.4.</span> <span class="nav-text">训练与评价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降算法"><span class="nav-number">1.5.</span> <span class="nav-text">梯度下降算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#批量梯度下降"><span class="nav-number">1.5.1.</span> <span class="nav-text">批量梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机梯度下降SGD"><span class="nav-number">1.5.2.</span> <span class="nav-text">随机梯度下降SGD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mini-batch梯度下降"><span class="nav-number">1.5.3.</span> <span class="nav-text">mini-batch梯度下降</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-非线性回归"><span class="nav-number">2.</span> <span class="nav-text">2.非线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">2.1.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-逻辑回归"><span class="nav-number">3.</span> <span class="nav-text">3.逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引出-1"><span class="nav-number">3.1.</span> <span class="nav-text">问题引出</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
