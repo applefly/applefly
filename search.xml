@@ -6,7 +6,9 @@
     <entry>
       <title><![CDATA[逻辑回归与线性回归原理探微]]></title>
       <url>http://onesimple.cn//blog/2017/02/logistic-regression/</url>
-      <content type="html"><![CDATA[<p>&emsp;&emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:</p>
+      <content type="html"><![CDATA[<center><br><img alt="封面" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/cover/ml.jpg?imageView2/2/w/600"><br></center>
+
+<p>&emsp;&emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:</p>
 <blockquote>
 <p>线性回归: 最小二乘法推导，预测连续值</p>
 <p>逻辑回归: 基于最大似然估计，主要解决二分类问题，也可用于连续值的预测</p>
@@ -182,7 +184,9 @@
     <entry>
       <title><![CDATA[“只生一个娃”--设计模式中的单例模式（Singleton）]]></title>
       <url>http://onesimple.cn//blog/2015/07/singleton/</url>
-      <content type="html"><![CDATA[<p>&emsp;&emsp;<strong>所谓单例模式（Singleton），即指一个类只有一个实例（Instance），并给外界提供访问该实例的一个全局访问点。</strong></p>
+      <content type="html"><![CDATA[<center><br><img alt="封面" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/cover/design.jpg?imageView2/2/w/600"><br></center>
+
+<p>&emsp;&emsp;<strong>所谓单例模式（Singleton），即指一个类只有一个实例（Instance），并给外界提供访问该实例的一个全局访问点。</strong></p>
 <a id="more"></a>
 <hr>
 <ul>
