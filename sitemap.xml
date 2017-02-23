@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://onesimple.cn//blog/2015/07/singleton/</loc>
+    
+    <lastmod>2017-02-23T13:47:23.488Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://onesimple.cn//blog/2015/07/event-on-windows-platform/</loc>
     
     <lastmod>2017-02-23T10:21:42.081Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://onesimple.cn//blog/2015/08/function-overloads/</loc>
     
     <lastmod>2017-02-22T13:23:25.300Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://onesimple.cn//blog/2015/07/singleton/</loc>
-    
-    <lastmod>2017-02-22T01:59:43.744Z</lastmod>
     
   </url>
   
