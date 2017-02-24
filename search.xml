@@ -55,6 +55,13 @@
 <h1 id="3-逻辑回归"><a href="#3-逻辑回归" class="headerlink" title="3.逻辑回归"></a>3.逻辑回归</h1><h2 id="问题引出-1"><a href="#问题引出-1" class="headerlink" title="问题引出"></a>问题引出</h2><p>线性回归适合预测连续值，在解决分类问题时则有些不合理，比如<br>如果只有A B 两簇，线性回归拟合直线为$L_1$,此时取定义域中点a处的值作为界限进行分类，可能暂时满足。但当是ABC三簇数据时，再依此法取b出的值作为分类界限，就会发现分类很不合理。所以线性回归解决分类问题是不合理的，而逻辑回归则适合解决二分类问题。(如果解决多分类问题，可使用softmax回归)</p>
 <center><br><img title="线性回归拟合直线" alt="线性回归拟合直线" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg1.png?imageView2/2/w/600"><br></center>
 
+<p>逻辑回归虽然叫回归，但它实际是一种分类方法，主要解决分类问题，它的核心是利用了Logistic函数（也称Sigmoid函数），函数形式为:</p>
+<p>$$<br>f{(x)} = \frac {1} {1 + e^{-x}}<br>$$</p>
+<center><br><img title="Sigmoid函数" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/data/sigmoid.jpg?imageView2/2/w/600"><br></center>
+
+<p>逻辑回归中，取预测值$w^Tx$为自变量，得</p>
+<p>$$<br>f_w{(x)} = g(w^Tx) = \frac {1} {1 + e^{-{w^T}x}}<br>$$</p>
+<p>上式可得到(0,1)区间的的分类预测值，以0.5为界进行划分即可完成分类。<br>要求解参数w，我们先对Sigmoid函数求偏导:<br>$$<br>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))<br>$$</p>
 <center><br>《—- 待续 —-》<br></center>
 
 
@@ -94,6 +101,8 @@
 <p>$$<br>\begin{bmatrix}<br>1 &amp; 2\\<br>3 &amp; 4<br>\end{bmatrix}<br>$$</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">    w = </div><div class="line">        \left (</div><div class="line">            \begin&#123;matrix&#125; </div><div class="line">                w\_0 \\</div><div class="line">                w\_1 \\</div><div class="line">                ... \\</div><div class="line">                w\_&#123;m-1&#125; </div><div class="line">            \end&#123;matrix&#125;</div><div class="line">        \right )</div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>$$<br>    w =<br>        \left (<br>            \begin{matrix}<br>                w_0 \\<br>                w_1 \\<br>                … \\<br>                w_{m-1}<br>            \end{matrix}<br>        \right )<br>$$</p>
+<p>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))</p>
+<p>$$<br>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))<br>$$</p>
 <ul>
 <li>表格测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 链接 | 结果 | 原因 |</div><div class="line">|:-----|:---:|----------:|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div></pre></td></tr></table></figure>
 </li>

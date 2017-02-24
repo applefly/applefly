@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
+    
+    <lastmod>2017-02-24T01:52:36.274Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</loc>
+    
+    <lastmod>2017-02-24T01:51:39.007Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://onesimple.cn//blog/2015/07/singleton/</loc>
     
     <lastmod>2017-02-23T13:47:23.488Z</lastmod>
@@ -44,13 +58,6 @@
   </url>
   
   <url>
-    <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
-    
-    <lastmod>2017-02-22T01:40:13.358Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://onesimple.cn//blog/2015/07/principles-of-auto-pointer/</loc>
     
     <lastmod>2017-02-21T14:52:01.681Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://onesimple.cn/tags/index.html</loc>
     
     <lastmod>2017-02-13T15:45:47.108Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</loc>
-    
-    <lastmod>2017-02-13T15:05:07.259Z</lastmod>
     
   </url>
   

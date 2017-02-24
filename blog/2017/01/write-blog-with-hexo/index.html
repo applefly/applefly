@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="onesimple">
 <meta property="og:description" content="本篇主要整理了一些常用的markdown语法，以及hexo博客使用mathjax渲染公式的一些样例。">
 <meta property="og:image" content="http://okqpu7sb4.bkt.clouddn.com/image/cover/beach.jpg">
-<meta property="og:updated_time" content="2017-02-13T15:05:07.259Z">
+<meta property="og:updated_time" content="2017-02-24T01:51:39.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客之常用markdown语法及latex公式备忘">
 <meta name="twitter:description" content="本篇主要整理了一些常用的markdown语法，以及hexo博客使用mathjax渲染公式的一些样例。">
@@ -400,7 +400,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://okqpu7sb4.bkt.clouddn.com/image/cover/beach.jpg" rel="gallery_cizigf5x0000qoksijct189h3"
+                 href="http://okqpu7sb4.bkt.clouddn.com/image/cover/beach.jpg" rel="gallery_cizj4hehd000qaksidieku4y4"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://okqpu7sb4.bkt.clouddn.com/image/cover/beach.jpg" itemprop="contentUrl"/>
               </a>
@@ -442,6 +442,8 @@
 <p>$$<br>\begin{bmatrix}<br>1 &amp; 2\\<br>3 &amp; 4<br>\end{bmatrix}<br>$$</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">    w = </div><div class="line">        \left (</div><div class="line">            \begin&#123;matrix&#125; </div><div class="line">                w\_0 \\</div><div class="line">                w\_1 \\</div><div class="line">                ... \\</div><div class="line">                w\_&#123;m-1&#125; </div><div class="line">            \end&#123;matrix&#125;</div><div class="line">        \right )</div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>$$<br>    w =<br>        \left (<br>            \begin{matrix}<br>                w_0 \\<br>                w_1 \\<br>                … \\<br>                w_{m-1}<br>            \end{matrix}<br>        \right )<br>$$</p>
+<p>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))</p>
+<p>$$<br>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))<br>$$</p>
 <ul>
 <li>表格测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 链接 | 结果 | 原因 |</div><div class="line">|:-----|:---:|----------:|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div></pre></td></tr></table></figure>
 </li>
