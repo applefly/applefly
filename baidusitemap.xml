@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</loc>
+    <lastmod>2017-02-26T14:56:38.478Z</lastmod>
+    <data>
+        <display>
+        <title>hexo博客之常用markdown语法及latex公式备忘</title>
+        <pubTime>2017-01-22T08:34:15.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://onesimple.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
     <lastmod>2017-02-24T01:52:36.274Z</lastmod>
     <data>
@@ -19,26 +39,6 @@
            
              
               <breadCrumb title="机器学习" url="http://onesimple.cn/categories/mechine-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</loc>
-    <lastmod>2017-02-24T01:51:39.007Z</lastmod>
-    <data>
-        <display>
-        <title>hexo博客之常用markdown语法及latex公式备忘</title>
-        <pubTime>2017-01-22T08:34:15.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://onesimple.cn/categories/hexo/"/>
           
         </display>
     </data>

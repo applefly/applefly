@@ -72,7 +72,7 @@
     <entry>
       <title><![CDATA[hexo博客之常用markdown语法及latex公式备忘]]></title>
       <url>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</url>
-      <content type="html"><![CDATA[<p>本篇主要整理了一些常用的markdown语法，以及hexo博客使用mathjax渲染公式的一些样例。</p>
+      <content type="html"><![CDATA[<p>本篇主要整理了一些常用的markdown语法，以及hexo博客使用mathjax渲染公式的一些样例,当然，mathjax公式也不只是hexo专属。</p>
 <a id="more"></a>
 <ul>
 <li>图片居中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt;</div><div class="line">&#123;% qnimg user/alipay.jpg title:微信二维码 alt:二维码 &apos;class:class1 class2&apos; extend:?imageView2/2/w/600 %&#125;</div><div class="line">&lt;/center&gt;</div></pre></td></tr></table></figure>
