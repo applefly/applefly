@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://okqpu7sb4.bkt.clouddn.com//image/cover/ml.jpg?imageView2/2/w/600">
 <meta property="og:image" content="http://okqpu7sb4.bkt.clouddn.com//image/data/line-rg1.png?imageView2/2/w/600">
 <meta property="og:image" content="http://okqpu7sb4.bkt.clouddn.com//image/data/sigmoid.jpg?imageView2/2/w/600">
-<meta property="og:updated_time" content="2017-02-24T01:52:36.274Z">
+<meta property="og:updated_time" content="2017-03-08T15:01:50.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归与线性回归原理探微">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;回归和分类是机器学习解决的最重要的问题，本篇主要整理了线性回归和逻辑回归的基本推理过程和工程实践应用，首先对两种回归的方法做一下比较:
@@ -462,12 +462,14 @@
 <center><br><img title="Sigmoid函数" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/data/sigmoid.jpg?imageView2/2/w/600"><br></center>
 
 <p>逻辑回归中，取预测值$w^Tx$为自变量，得</p>
-<p>$$<br>f_w{(x)} = g(w^Tx) = \frac {1} {1 + e^{-{w^T}x}}<br>$$</p>
-<p>上式可得到(0,1)区间的的分类预测值，以0.5为界进行划分即可完成分类。<br>要求解参数w，我们先对Sigmoid函数求偏导:<br>$$<br>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))<br>$$</p>
-<center><br>《—- 待续 —-》<br></center>
-
-
-
+<p>$$<br>\begin{equation}<br>f_w{(x)} = g(w^Tx) = \frac {1} {1 + e^{-{w^T}x}}<br>\label{a3}<br>\end{equation}<br>$$</p>
+<p>上式可得到(0,1)区间的的分类预测值，以0.5为界进行划分即可完成分类。<br>要求解参数w，我们先对Sigmoid函数求偏导:<br>$$<br>\begin{equation}<br>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))<br>\label{a4}<br>\end{equation}<br>$$</p>
+<p>和线性回归高斯分布不同，逻辑回归是二项分布，可以写成分段概率形式：<br>$$<br>p(y=1|x,w) = f_w{(x)}<br>p(y=0|x,w) = 1 - f_w{(x)}<br>$$<br>整合一下可以写成:<br>$$<br>p(y|x,w) = (f_w{(x)})^y (1 - f_w{(x)})^{(1-y)}<br>$$<br>似然函数变为：<br>$$<br>L(w) = \prod_{i=1}^{n} p( y^{(i)} | x^{(i)} ; w)<br>$$<br>对数似然函数：<br>$$<br>l(w) = \sum_{i=1}^{n} {( y^{(i)}  \ln {(f_w{(x^{(i)}}))}  + (1-y^{(i)}) \ln {(1-f_w{(x^{(i)}})}    )}<br>$$</p>
+<p>对$w_j$求偏导,并代入$(\ref{a3})$,$(\ref{a4})$，可得:<br>$$<br> \frac{\partial l(w)}{\partial w_j}<br> = (y- f_w (x)) x_j<br>$$</p>
+<p>进而可以得到梯度上升（往往也通称梯度下降）的迭代公式为:</p>
+<p>$$<br>w_j = w_j + \alpha (y^{(i)} - f_w(x^{(i)})) \cdot x_j^{(i)} + \lambda w_j<br>$$</p>
+<p>预测时：<br>$$<br>f(x|w) &gt; 0.5 ,y = 1<br>f(x|w) &lt;= 0.5 ,y = 0<br>$$<br>这里的f(x|w)也可以理解为后验概率来用。</p>
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h1><p>逻辑回归是基于最大似然估计和二项分布的，跟线性回归中用的最小二乘法没有关系。<br>后续将补充一些逻辑回归做预测的应用实例，并介绍谷歌ftrl在线学习算法等，敬请关注！</p>
 
       
     </div>
@@ -700,7 +702,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-线性回归"><span class="nav-number">1.</span> <span class="nav-text">1.线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引出"><span class="nav-number">1.1.</span> <span class="nav-text">问题引出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数学习"><span class="nav-number">1.2.</span> <span class="nav-text">参数学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化处理"><span class="nav-number">1.3.</span> <span class="nav-text">正则化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练与评价"><span class="nav-number">1.4.</span> <span class="nav-text">训练与评价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降算法"><span class="nav-number">1.5.</span> <span class="nav-text">梯度下降算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#批量梯度下降"><span class="nav-number">1.5.1.</span> <span class="nav-text">批量梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机梯度下降SGD"><span class="nav-number">1.5.2.</span> <span class="nav-text">随机梯度下降SGD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mini-batch梯度下降"><span class="nav-number">1.5.3.</span> <span class="nav-text">mini-batch梯度下降</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-非线性回归"><span class="nav-number">2.</span> <span class="nav-text">2.非线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">2.1.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-逻辑回归"><span class="nav-number">3.</span> <span class="nav-text">3.逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引出-1"><span class="nav-number">3.1.</span> <span class="nav-text">问题引出</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-线性回归"><span class="nav-number">1.</span> <span class="nav-text">1.线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引出"><span class="nav-number">1.1.</span> <span class="nav-text">问题引出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数学习"><span class="nav-number">1.2.</span> <span class="nav-text">参数学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化处理"><span class="nav-number">1.3.</span> <span class="nav-text">正则化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练与评价"><span class="nav-number">1.4.</span> <span class="nav-text">训练与评价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降算法"><span class="nav-number">1.5.</span> <span class="nav-text">梯度下降算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#批量梯度下降"><span class="nav-number">1.5.1.</span> <span class="nav-text">批量梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机梯度下降SGD"><span class="nav-number">1.5.2.</span> <span class="nav-text">随机梯度下降SGD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mini-batch梯度下降"><span class="nav-number">1.5.3.</span> <span class="nav-text">mini-batch梯度下降</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-非线性回归"><span class="nav-number">2.</span> <span class="nav-text">2.非线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">2.1.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-逻辑回归"><span class="nav-number">3.</span> <span class="nav-text">3.逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题引出-1"><span class="nav-number">3.1.</span> <span class="nav-text">问题引出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-总结"><span class="nav-number">4.</span> <span class="nav-text">4.总结</span></a></li></ol></div>
             
 
           </div>
