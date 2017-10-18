@@ -72,69 +72,40 @@
     </entry>
     
     <entry>
-      <title><![CDATA[hexo博客之常用markdown语法及latex公式备忘]]></title>
-      <url>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</url>
-      <content type="html"><![CDATA[<p>本篇主要整理了一些常用的markdown语法，以及hexo博客使用mathjax渲染公式的一些样例,当然，mathjax公式也不只是hexo专属。</p>
+      <title><![CDATA[SVM支持向量机原理简析]]></title>
+      <url>http://onesimple.cn//blog/2016/10/svm-1/</url>
+      <content type="html"><![CDATA[<p>SVM是支持向量机support vector machine的缩写，它是现在使用比较广泛的一个分类算法。</p>
 <a id="more"></a>
+<p>&emsp;&emsp;关于svm的研究，前人之述备矣，本篇只做归纳整理，详细推导过程可参考大牛的博客：</p>
+<p><a href="http://blog.csdn.net/v_july_v/article/details/7624837" target="_blank" rel="external">支持向量机通俗导论（理解SVM的三层境界）</a></p>
+<p><a href="http://blog.csdn.net/c406495762/article/details/78072313" target="_blank" rel="external">支持向量机原理篇之手撕线性SVM</a></p>
 <ul>
-<li>图片居中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt;</div><div class="line">&#123;% qnimg user/alipay.jpg title:微信二维码 alt:二维码 &apos;class:class1 class2&apos; extend:?imageView2/2/w/600 %&#125;</div><div class="line">&lt;/center&gt;</div></pre></td></tr></table></figure>
-</li>
+<li>什么是svm?</li>
 </ul>
-<center><br><img title="支付宝二维码" alt="二维码" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/user/alipay.jpg?imageView2/2/w/600"><br></center>
+<center><br><img class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/data/svm.jpg?imageView2/2/w/600"><br></center>
 
+<p>&emsp;&emsp;svm主要用于解决机器学习领域中的数据分类问题，属于有监督学习算法的一种。<br>SVM要解决的问题可以用一个经典的二分类问题加以描述。<br>如图1所示，红色和蓝色的二维数据点显然是可以被一条直线分开的，在模式识别领域称为线性可分问题。<br>然而将两类数据点分开的直线显然不止一条。图1(b)和(c)分别给出了A、B两种不同的分类方案，其中黑色实线为分界线，术语称为“决策面”。<br>每个决策面对应了一个线性分类器。<br>虽然在目前的数据上看，这两个分类器的分类结果是一样的，但如果考虑潜在的其他数据，则两者的分类性能是有差别的。<br>当一个分类问题，数据是线性可分的，也就是用一根棍就可以将两种小球分开的时候，<br>我们只要将棍的位置放在让小球距离棍的距离最大化的位置即可，寻找这个最大间隔的过程，就叫做最优化。<br>那个具有“最大间隔”的决策面就是SVM要寻找的最优解。而这个真正的最优解对应的两侧虚线所穿过的样本点，就是SVM中的支持样本点，称为“支持向量”。<br>但是，现实往往是很残酷的，一般的数据是线性不可分的，也就是找不到一个棍将两种小球很好的分类。<br>这个时候，我们就需要像大侠一样，将小球拍起，用一张纸代替小棍将小球进行分类。<br>想要让数据飞起，我们需要的东西就是核函数(kernel)，用于切分小球的纸，就是超平面。<br>通俗来讲，它是一种二类分类模型，其基本模型定义为特征空间上的间隔最大的线性分类器，其学习策略便是间隔最大化，最终可转化为一个凸二次规划问题的求解。</p>
 <ul>
-<li>mathjax 公式测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">段内公式只用一个$即可:  $F_&#123;\mu&#125;$</div></pre></td></tr></table></figure>
-</li>
+<li>求解过程</li>
 </ul>
-<p>&emsp;&emsp;这是我的段内公式: $F_{\mu}$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sum_&#123;i=1&#125;^n a_i=0$$</div></pre></td></tr></table></figure>
-<p>$$\sum_{i=1}^n a_i=0$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$F_&#123;\mu&#125;$</div><div class="line"></div><div class="line">$F_1 + F_b = F_c$</div><div class="line"></div><div class="line">$$</div><div class="line">f(x) \approx  y</div><div class="line">$$</div></pre></td></tr></table></figure>
-<p>$F_{\mu}$</p>
-<p>$F_1 + F_b = F_c$</p>
-<p>$$<br>f(x) \approx  y<br>$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$x = ( x_0 , x_1 , ... , x_&#123;m-1&#125; )$</div></pre></td></tr></table></figure>
-<p>$x = ( x_0 , x_1 , … , x_{m-1} )$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sum_&#123;i=1&#125;^n a_i=0$$</div></pre></td></tr></table></figure>
-<p>$$\sum_{i=1}^n a_i=0$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$x = ( x_0 , x_1 , ... , x_&#123;m-1&#125; )$</div></pre></td></tr></table></figure>
-<p>$x = ( x_0 , x_1 , … , x_{m-1} )$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">\begin&#123;bmatrix&#125;</div><div class="line">1 &amp; 2\\</div><div class="line">3 &amp; 4</div><div class="line">\end&#123;bmatrix&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
-<p>$$<br>\begin{bmatrix}<br>1 &amp; 2\\<br>3 &amp; 4<br>\end{bmatrix}<br>$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">    w = </div><div class="line">        \left (</div><div class="line">            \begin&#123;matrix&#125; </div><div class="line">                w\_0 \\</div><div class="line">                w\_1 \\</div><div class="line">                ... \\</div><div class="line">                w\_&#123;m-1&#125; </div><div class="line">            \end&#123;matrix&#125;</div><div class="line">        \right )</div><div class="line">$$</div></pre></td></tr></table></figure>
-<p>$$<br>    w =<br>        \left (<br>            \begin{matrix}<br>                w_0 \\<br>                w_1 \\<br>                … \\<br>                w_{m-1}<br>            \end{matrix}<br>        \right )<br>$$</p>
-<p>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))</p>
-<p>$$<br>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))<br>$$</p>
+<p>&emsp;&emsp;以二维空间的分类问题为例来说明，决策面方程（二维空间即为直线方程）:<br>$$<br>w^Tx + b = 0<br>$$<br>w控制直线的方向，b控制直线的截距。</p>
+<p>根据点到直线的距离计算公式，得分类间隔为：<br>$$<br>d= \frac {|w^Tx+b|} {||w||}<br>$$</p>
+<p>– 约束条件：<br>对于存在分类间隔的两类样本点，我们一定可以找到一些决策面，使其对于所有的样本点均满足下面的条件（中间省略若干推导）：</p>
+<p>$$<br>\begin{cases}<br>w^Tx_i + \gamma \ge 1 &amp; y_i=1\\<br>w^Tx_i + \gamma \le -1 &amp; y_i=-1\<br>\end{cases}<br>$$</p>
+<p>– 优化问题</p>
+<p>支持向量样本点到决策面方程的距离为：<br>$$<br>d= \frac {|w^Tx_i+\gamma|} {||w||} \<br>=\frac 1 {||w||}<br>$$<br>原来要找一组w和$\gamma$使分类间隔W=2d最大化，现在问题变成了||w||最小化问题，等效于$\frac{1}{2}||\boldsymbol{\omega}||^2$的最小化问题</p>
+<p>则线性SVM最优化问题的数学描述就变成：<br>$$<br>\begin{cases}<br>min_{w,\gamma} \frac{1}{2} {||w||^2} \\<br>s.t. {y_i}(w^Tx_i+\gamma) \ge 1 &amp; {i=1,2,…,m}\<br>\end{cases}<br>$$</p>
+<p>目标函数是二次的，约束条件是线性的，所以它是一个凸二次规划问题，一般可以通过现成的QP优化包进行求解。此外，还可以通过拉格朗日对偶性变换<br>到对偶变量的优化问题，就是线性可分条件下支持向量机的对偶算法，这样做的优点在于：一者对偶问题往往更容易求解；二者可以自然的引入核函数，<br>进而推广到非线性分类问题。</p>
 <ul>
-<li>表格测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 链接 | 结果 | 原因 |</div><div class="line">|:-----|:---:|----------:|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div></pre></td></tr></table></figure>
-</li>
+<li>拉格朗日对偶<br>– 将有约束的原始目标函数转换为无约束的新构造的拉格朗日目标函数<br>$$<br>L(w,\gamma,\alpha) = \frac{1}{2} {||w||^2} - \<br>\sum_{i=1}^n\alpha_i(y_i(w^Tx_i+\gamma) - 1)<br>$$</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">链接</th>
-<th style="text-align:center">结果</th>
-<th style="text-align:right">原因</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">文本内容</td>
-<td style="text-align:center"><strong><code>是</code></strong></td>
-<td style="text-align:right">同协议同域名同端口</td>
-</tr>
-<tr>
-<td style="text-align:left">文本内容</td>
-<td style="text-align:center"><strong><code>是</code></strong></td>
-<td style="text-align:right">同协议同域名同端口</td>
-</tr>
-<tr>
-<td style="text-align:left">文本内容</td>
-<td style="text-align:center"><strong><code>是</code></strong></td>
-<td style="text-align:right">同协议同域名同端口</td>
-</tr>
-</tbody>
-</table>
+<p>其中$\alpha_i$是拉格朗日乘子，首先分别对w和$\gamma$求偏导，令偏导为0，得:<br>$$<br>w=\sum_{i=1}^n\alpha_i y_i x_i \\<br>\sum_{i=0}^n\alpha_i y_i = 0<br>$$<br>代回拉格朗日目标函数，得：<br>$$<br>L(w,\gamma,\alpha) = … = \sum_{i=0}^n\alpha_i - \frac {1} {2} \sum_{i,j=1}^n{\alpha_i \alpha_j y_i y_j {x_i}^T x_j}<br>$$</p>
+<p>所以对偶问题就变成：<br>$$<br>\begin{cases}<br>\max\limits_\alpha  \sum_{i=0}^n\alpha_i - \frac {1} {2}<br>\sum_{i,j=1}^n{\alpha_i \alpha_j y_i y_j {x_i}^T x_j}  \\<br>s.t. {\alpha_i} \ge 0 &amp; {i=1,2,…,n} \\<br>\sum_{i=0}^n\alpha_i y_i = 0 \<br>\end{cases}<br>$$</p>
+<center><br>…… 未完待续 ……<br></center>
+
+<p>&emsp;&emsp;</p>
+<p>&emsp;&emsp;</p>
+<p>&emsp;&emsp;</p>
 ]]></content>
     </entry>
     
@@ -223,6 +194,73 @@
 <p>还有一些常见的快捷键：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">o    打开目录或文件</div><div class="line">回车    打开折叠  zo</div><div class="line">zc    关闭折叠</div><div class="line">zR    打开所有的折叠 (open all fold)</div><div class="line">zM    关闭所有的摺叠</div><div class="line">i    使用一个水平分割窗口来打开选中的文件. </div><div class="line">s    使用一个垂直窗口来打开选中的文件 </div><div class="line">P    转到根目录</div><div class="line">p    转到父目录</div></pre></td></tr></table></figure></p>
 <p>详细其他快捷键可参考<a href="http://www.111cn.net/sys/linux/59747.htm" target="_blank" rel="external">vim 常用 NERDTree 快捷键</a></p>
 <p>好了，好好享用便捷的树形目录吧！</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[hexo博客之常用markdown语法及latex公式备忘]]></title>
+      <url>http://onesimple.cn//blog/2016/01/write-blog-with-hexo/</url>
+      <content type="html"><![CDATA[<p>本篇主要整理了一些常用的markdown语法，以及hexo博客使用mathjax渲染公式的一些样例,当然，mathjax公式也不只是hexo专属。</p>
+<a id="more"></a>
+<ul>
+<li>图片居中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt;</div><div class="line">&#123;% qnimg user/alipay.jpg title:微信二维码 alt:二维码 &apos;class:class1 class2&apos; extend:?imageView2/2/w/600 %&#125;</div><div class="line">&lt;/center&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<center><br><img title="支付宝二维码" alt="二维码" class="class1 class2" src="http://okqpu7sb4.bkt.clouddn.com//image/user/alipay.jpg?imageView2/2/w/600"><br></center>
+
+<ul>
+<li>mathjax 公式测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">段内公式只用一个$即可:  $F_&#123;\mu&#125;$</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;这是我的段内公式: $F_{\mu}$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sum_&#123;i=1&#125;^n a_i=0$$</div></pre></td></tr></table></figure>
+<p>$$\sum_{i=1}^n a_i=0$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$F_&#123;\mu&#125;$</div><div class="line"></div><div class="line">$F_1 + F_b = F_c$</div><div class="line"></div><div class="line">$$</div><div class="line">f(x) \approx  y</div><div class="line">$$</div></pre></td></tr></table></figure>
+<p>$F_{\mu}$</p>
+<p>$F_1 + F_b = F_c$</p>
+<p>$$<br>f(x) \approx  y<br>$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$x = ( x_0 , x_1 , ... , x_&#123;m-1&#125; )$</div></pre></td></tr></table></figure>
+<p>$x = ( x_0 , x_1 , … , x_{m-1} )$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sum_&#123;i=1&#125;^n a_i=0$$</div></pre></td></tr></table></figure>
+<p>$$\sum_{i=1}^n a_i=0$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$x = ( x_0 , x_1 , ... , x_&#123;m-1&#125; )$</div></pre></td></tr></table></figure>
+<p>$x = ( x_0 , x_1 , … , x_{m-1} )$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">\begin&#123;bmatrix&#125;</div><div class="line">1 &amp; 2\\</div><div class="line">3 &amp; 4</div><div class="line">\end&#123;bmatrix&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
+<p>$$<br>\begin{bmatrix}<br>1 &amp; 2\\<br>3 &amp; 4<br>\end{bmatrix}<br>$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">    w = </div><div class="line">        \left (</div><div class="line">            \begin&#123;matrix&#125; </div><div class="line">                w\_0 \\</div><div class="line">                w\_1 \\</div><div class="line">                ... \\</div><div class="line">                w\_&#123;m-1&#125; </div><div class="line">            \end&#123;matrix&#125;</div><div class="line">        \right )</div><div class="line">$$</div></pre></td></tr></table></figure>
+<p>$$<br>    w =<br>        \left (<br>            \begin{matrix}<br>                w_0 \\<br>                w_1 \\<br>                … \\<br>                w_{m-1}<br>            \end{matrix}<br>        \right )<br>$$</p>
+<p>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))</p>
+<p>$$<br>g^{‘}{(x)} = ( \frac {1} {1 + e^{-x}} )^{‘} \\\\<br>    = \frac {e^{-x}} {(1+e^{-x})^2} \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { \frac {e^{-x}} {1+e^{-x}} } \\\\<br>    = \frac {1} {1 + e^{-x}} \cdot { (1 - {\frac {1} {1+e^{-x}}}) } \\\\<br>    = g(x)(1-g(x))<br>$$</p>
+<ul>
+<li>表格测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 链接 | 结果 | 原因 |</div><div class="line">|:-----|:---:|----------:|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div><div class="line">|文本内容| **`是`** |同协议同域名同端口|</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">链接</th>
+<th style="text-align:center">结果</th>
+<th style="text-align:right">原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">文本内容</td>
+<td style="text-align:center"><strong><code>是</code></strong></td>
+<td style="text-align:right">同协议同域名同端口</td>
+</tr>
+<tr>
+<td style="text-align:left">文本内容</td>
+<td style="text-align:center"><strong><code>是</code></strong></td>
+<td style="text-align:right">同协议同域名同端口</td>
+</tr>
+<tr>
+<td style="text-align:left">文本内容</td>
+<td style="text-align:center"><strong><code>是</code></strong></td>
+<td style="text-align:right">同协议同域名同端口</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     </entry>
     

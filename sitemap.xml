@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
+    <loc>http://onesimple.cn//blog/2016/10/svm-1/</loc>
     
-    <lastmod>2017-03-08T15:01:50.750Z</lastmod>
+    <lastmod>2017-10-18T10:24:14.436Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</loc>
+    <loc>http://onesimple.cn//blog/2016/01/write-blog-with-hexo/</loc>
     
-    <lastmod>2017-02-26T14:56:38.478Z</lastmod>
+    <lastmod>2017-10-18T09:29:22.082Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
+    
+    <lastmod>2017-10-07T01:15:59.642Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://onesimple.cn//blog/2015/07/singleton/</loc>
     
-    <lastmod>2017-02-23T13:47:23.488Z</lastmod>
+    <lastmod>2017-02-23T13:47:23.489Z</lastmod>
     
   </url>
   
@@ -32,7 +39,7 @@
   <url>
     <loc>http://onesimple.cn//blog/2015/07/mutex-on-windows-platform/</loc>
     
-    <lastmod>2017-02-22T15:07:04.261Z</lastmod>
+    <lastmod>2017-02-22T15:07:04.262Z</lastmod>
     
   </url>
   
@@ -60,7 +67,7 @@
   <url>
     <loc>http://onesimple.cn//blog/2015/07/principles-of-auto-pointer/</loc>
     
-    <lastmod>2017-02-21T14:52:01.681Z</lastmod>
+    <lastmod>2017-02-21T14:52:01.682Z</lastmod>
     
   </url>
   
@@ -74,7 +81,7 @@
   <url>
     <loc>http://onesimple.cn/tags/index.html</loc>
     
-    <lastmod>2017-02-13T15:45:47.108Z</lastmod>
+    <lastmod>2017-02-13T15:45:47.109Z</lastmod>
     
   </url>
   

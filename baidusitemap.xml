@@ -4,8 +4,50 @@
 
     
   <url>
+    <loc>http://onesimple.cn//blog/2016/10/svm-1/</loc>
+    <lastmod>2017-10-18T10:24:14.436Z</lastmod>
+    <data>
+        <display>
+        <title>SVM支持向量机原理简析</title>
+        <pubTime>2016-10-04T13:07:00.000Z</pubTime>
+        
+        <tag>机器学习</tag>
+         
+        <tag>svm</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://onesimple.cn/categories/mechine-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://onesimple.cn//blog/2016/01/write-blog-with-hexo/</loc>
+    <lastmod>2017-10-18T09:29:22.082Z</lastmod>
+    <data>
+        <display>
+        <title>hexo博客之常用markdown语法及latex公式备忘</title>
+        <pubTime>2016-01-22T08:34:15.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://onesimple.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://onesimple.cn//blog/2017/02/logistic-regression/</loc>
-    <lastmod>2017-03-08T15:01:50.750Z</lastmod>
+    <lastmod>2017-10-07T01:15:59.642Z</lastmod>
     <data>
         <display>
         <title>逻辑回归与线性回归原理探微</title>
@@ -26,28 +68,8 @@
 
     
   <url>
-    <loc>http://onesimple.cn//blog/2017/01/write-blog-with-hexo/</loc>
-    <lastmod>2017-02-26T14:56:38.478Z</lastmod>
-    <data>
-        <display>
-        <title>hexo博客之常用markdown语法及latex公式备忘</title>
-        <pubTime>2017-01-22T08:34:15.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://onesimple.cn/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://onesimple.cn//blog/2015/07/singleton/</loc>
-    <lastmod>2017-02-23T13:47:23.488Z</lastmod>
+    <lastmod>2017-02-23T13:47:23.489Z</lastmod>
     <data>
         <display>
         <title>“只生一个娃”--设计模式中的单例模式（Singleton）</title>
@@ -89,7 +111,7 @@
     
   <url>
     <loc>http://onesimple.cn//blog/2015/07/mutex-on-windows-platform/</loc>
-    <lastmod>2017-02-22T15:07:04.261Z</lastmod>
+    <lastmod>2017-02-22T15:07:04.262Z</lastmod>
     <data>
         <display>
         <title>windows平台多线程同步之Mutex的应用</title>
@@ -168,7 +190,7 @@
     
   <url>
     <loc>http://onesimple.cn//blog/2015/07/principles-of-auto-pointer/</loc>
-    <lastmod>2017-02-21T14:52:01.681Z</lastmod>
+    <lastmod>2017-02-21T14:52:01.682Z</lastmod>
     <data>
         <display>
         <title>智能指针的实现机理</title>
